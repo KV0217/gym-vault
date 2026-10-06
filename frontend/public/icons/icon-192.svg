@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="192" height="192">
+  <defs>
+    <linearGradient id="redGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF4D6A" />
+      <stop offset="100%" stop-color="#DC2626" />
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="128" fill="#000000" />
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="#262626" stroke-width="4" />
+
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#EF4444" stroke-width="3" opacity="0.3" stroke-dasharray="16 12" />
+
+  <!-- Dumbbell Handle -->
+  <rect x="136" y="240" width="240" height="32" rx="16" fill="#FFFFFF" />
+  <rect x="190" y="234" width="132" height="44" rx="8" fill="#141414" stroke="#EF4444" stroke-width="3" />
+
+  <!-- Left Plates -->
+  <rect x="132" y="176" width="34" height="160" rx="10" fill="url(#redGlow)" />
+  <rect x="92" y="146" width="36" height="220" rx="12" fill="url(#redGlow)" />
+  <rect x="68" y="206" width="20" height="100" rx="6" fill="#FFFFFF" />
+
+  <!-- Right Plates -->
+  <rect x="346" y="176" width="34" height="160" rx="10" fill="url(#redGlow)" />
+  <rect x="384" y="146" width="36" height="220" rx="12" fill="url(#redGlow)" />
+  <rect x="424" y="206" width="20" height="100" rx="6" fill="#FFFFFF" />
+
+  <!-- Top Star -->
+  <path d="M256 90 L268 126 L306 126 L275 148 L287 184 L256 162 L225 184 L237 148 L206 126 L244 126 Z" fill="#EF4444" />
+</svg>

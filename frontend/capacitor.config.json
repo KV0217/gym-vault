@@ -1,0 +1,22 @@
+{
+  "appId": "app.gymvault.athlete",
+  "appName": "GYM VAULT",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "ios": {
+    "contentInset": "automatic",
+    "allowsLinkPreview": false,
+    "scrollEnabled": true,
+    "backgroundColor": "#000000"
+  },
+  "plugins": {
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#000000",
+      "overlaysWebView": true
+    },
+    "Haptics": {
+      "enabled": true
+    }
+  }
+}

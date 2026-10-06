@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+*/node_modules
+
+# Build artifacts
+frontend/dist
+dist
+
+# Database files
+backend/db/gym.db
+backend/db/gym.db-wal
+backend/db/gym.db-shm
+*.db
+*.db-wal
+*.db-shm
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
