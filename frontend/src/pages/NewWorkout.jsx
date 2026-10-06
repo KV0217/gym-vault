@@ -294,15 +294,15 @@ export default function NewWorkout() {
   });
 
   return (
-    <div className="space-y-6 pb-20 max-w-4xl mx-auto select-none">
+    <div className="space-y-5 sm:space-y-6 pb-20 max-w-4xl mx-auto select-none min-w-0">
       {/* Sticky Workout Control Bar */}
-      <div className="bg-[#121212] border border-[#262626] rounded-3xl p-5 sm:p-6 sticky top-4 z-10 shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#121212] border border-[#262626] rounded-3xl p-4 sm:p-6 md:sticky md:top-4 z-10 shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <input
             type="text"
             value={name}
             onChange={e => setName(e.target.value)}
-            className="text-2xl font-black bg-transparent border-b border-transparent focus:border-[#EF4444] outline-none text-white transition-all px-1"
+            className="w-full sm:w-auto text-xl sm:text-2xl font-black bg-transparent border-b border-transparent focus:border-[#EF4444] outline-none text-white transition-all px-1"
           />
           <div className="flex items-center gap-3 text-sm mt-1 px-1">
             <div className="flex items-center gap-1.5 text-[#EF4444] font-bold font-mono">
@@ -319,7 +319,7 @@ export default function NewWorkout() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
           <button
             type="button"
             onClick={() => startRest(90)}
@@ -362,26 +362,26 @@ export default function NewWorkout() {
               </button>
             </div>
 
-            <div className="p-4 sm:p-5">
+            <div className="p-3 sm:p-5">
               {/* Sets Table */}
               <div className="space-y-2">
-                <div className="grid grid-cols-12 gap-2 text-[11px] font-black text-[#A3A3A3] uppercase tracking-wider px-2">
-                  <div className="col-span-2">SET</div>
-                  <div className="col-span-4">KG</div>
-                  <div className="col-span-3">REPS</div>
-                  <div className="col-span-3 text-center">DONE</div>
+                <div className="grid grid-cols-[2.75rem_minmax(0,1fr)_minmax(0,0.9fr)_2.75rem] sm:grid-cols-12 gap-1.5 sm:gap-2 text-[11px] font-black text-[#A3A3A3] uppercase tracking-wider px-2">
+                  <div className="sm:col-span-2">SET</div>
+                  <div className="sm:col-span-4">KG</div>
+                  <div className="sm:col-span-3">REPS</div>
+                  <div className="sm:col-span-3 text-center">DONE</div>
                 </div>
 
                 {ex.sets.map((s, sIndex) => (
                   <div
                     key={s.id}
-                    className={`grid grid-cols-12 gap-2 items-center p-2 rounded-2xl transition-all ${
+                    className={`grid grid-cols-[2.75rem_minmax(0,1fr)_minmax(0,0.9fr)_2.75rem] sm:grid-cols-12 gap-1.5 sm:gap-2 items-center p-1.5 sm:p-2 rounded-2xl transition-all ${
                       s.completed
                         ? 'bg-[#EF4444]/15 border border-[#EF4444]/40'
                         : 'bg-[#0D0D0D] border border-[#262626]'
                     }`}
                   >
-                    <div className="col-span-2 font-bold text-sm text-[#A3A3A3] flex items-center gap-1.5">
+                    <div className="sm:col-span-2 font-bold text-sm text-[#A3A3A3] flex items-center gap-1 min-w-0">
                       <span>{sIndex + 1}</span>
                       <button
                         type="button"
@@ -392,7 +392,7 @@ export default function NewWorkout() {
                       </button>
                     </div>
 
-                    <div className="col-span-4">
+                    <div className="sm:col-span-4 min-w-0">
                       <input
                         type="number"
                         step="0.5"
@@ -403,7 +403,7 @@ export default function NewWorkout() {
                       />
                     </div>
 
-                    <div className="col-span-3">
+                    <div className="sm:col-span-3 min-w-0">
                       <input
                         type="number"
                         placeholder="reps"
@@ -413,7 +413,7 @@ export default function NewWorkout() {
                       />
                     </div>
 
-                    <div className="col-span-3 flex justify-center">
+                    <div className="sm:col-span-3 flex justify-center">
                       <button
                         type="button"
                         onClick={() => toggleSetComplete(ex.instanceId, s.id)}
@@ -510,7 +510,10 @@ export default function NewWorkout() {
 
       {/* Floating Rest Timer Modal */}
       {isRestModalOpen && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#0D0D0D] border-2 border-[#EF4444] p-5 rounded-3xl shadow-2xl animate-fade-in-up glow-red w-72">
+        <div
+          className="fixed z-50 bg-[#0D0D0D] border-2 border-[#EF4444] p-4 sm:p-5 rounded-3xl shadow-2xl animate-fade-in-up glow-red w-[calc(100vw-2rem)] max-w-72 sm:w-72"
+          style={{ bottom: 'calc(5.5rem + env(safe-area-inset-bottom, 0px))', right: 'max(1rem, env(safe-area-inset-right, 0px))' }}
+        >
           <div className="flex justify-between items-center mb-2">
             <span className="text-xs font-black text-[#EF4444] uppercase tracking-wider flex items-center gap-1.5">
               <Clock size={14} className="text-[#EF4444]" /> REST TIMER

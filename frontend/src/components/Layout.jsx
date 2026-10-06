@@ -51,7 +51,11 @@ export default function Layout() {
       {/* Mobile iOS Top Navigation Bar (visible only on screens < 1024px) */}
       <header
         className="lg:hidden sticky top-0 z-30 bg-black/95 backdrop-blur-xl border-b border-[#262626] px-4 py-3 flex items-center justify-between"
-        style={{ paddingTop: 'max(0.75rem, env(safe-area-inset-top, 0px))' }}
+        style={{
+          paddingTop: 'max(0.75rem, env(safe-area-inset-top, 0px))',
+          paddingLeft: 'max(1rem, env(safe-area-inset-left, 0px))',
+          paddingRight: 'max(1rem, env(safe-area-inset-right, 0px))',
+        }}
       >
         <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-xl bg-[#141414] border border-[#262626] flex items-center justify-center text-[#EF4444]">
@@ -85,7 +89,7 @@ export default function Layout() {
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full lg:ml-[260px] p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto pb-28 lg:pb-8">
+      <main className="app-main flex-1 w-full lg:ml-[260px] p-3 sm:p-6 lg:p-8 max-w-7xl mx-auto pb-28 lg:pb-8">
         <Outlet context={{ profile, refreshProfile: fetchProfile }} />
       </main>
 

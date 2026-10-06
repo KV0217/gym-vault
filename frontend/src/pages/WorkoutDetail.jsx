@@ -83,11 +83,11 @@ export default function WorkoutDetail() {
       </button>
 
       {/* Header Card */}
-      <div className="bg-[#121212] border border-[#262626] rounded-3xl p-6 sm:p-7 shadow-xl relative overflow-hidden">
+      <div className="bg-[#121212] border border-[#262626] rounded-3xl p-4 sm:p-7 shadow-xl relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2.5 mb-1.5">
-              <h1 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">{workout.name}</h1>
+            <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
+              <h1 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight break-words">{workout.name}</h1>
               {prCount > 0 && (
                 <span className="flex items-center gap-1 bg-[#EF4444]/15 text-[#EF4444] border border-[#EF4444]/30 px-3 py-1 rounded-full text-xs font-black">
                   <Trophy size={13} /> {prCount} PR{prCount > 1 ? 's' : ''}!
@@ -142,37 +142,37 @@ export default function WorkoutDetail() {
               </span>
             </div>
 
-            <div className="p-4 sm:p-5">
+            <div className="p-3 sm:p-5">
               <div className="space-y-1.5">
-                <div className="grid grid-cols-12 gap-2 text-[10px] font-black text-[#A3A3A3] uppercase tracking-wider px-2 pb-1">
-                  <div className="col-span-2">SET</div>
-                  <div className="col-span-4 text-center">WEIGHT</div>
-                  <div className="col-span-3 text-center">REPS</div>
-                  <div className="col-span-3 text-center">STATUS</div>
+                <div className="grid grid-cols-[3rem_minmax(0,1fr)_minmax(0,0.85fr)_3.5rem] sm:grid-cols-12 gap-1.5 sm:gap-2 text-[10px] font-black text-[#A3A3A3] uppercase tracking-wider px-1 sm:px-2 pb-1">
+                  <div className="sm:col-span-2">SET</div>
+                  <div className="sm:col-span-4 text-center">KG</div>
+                  <div className="sm:col-span-3 text-center">REPS</div>
+                  <div className="sm:col-span-3 text-center">STATUS</div>
                 </div>
 
                 {(ex.sets || []).map((set, sIdx) => (
                   <div
                     key={set.id || sIdx}
-                    className={`grid grid-cols-12 gap-2 items-center p-2.5 rounded-2xl text-xs font-bold ${
+                    className={`grid grid-cols-[3rem_minmax(0,1fr)_minmax(0,0.85fr)_3.5rem] sm:grid-cols-12 gap-1.5 sm:gap-2 items-center p-2 sm:p-2.5 rounded-2xl text-xs font-bold ${
                       set.is_pr
                         ? 'bg-[#EF4444]/15 border border-[#EF4444]/40'
                         : 'bg-[#0D0D0D] border border-[#262626]'
                     }`}
                   >
-                    <div className="col-span-2 text-[#A3A3A3] pl-1 flex items-center gap-1.5">
-                      <span>Set {set.set_number || sIdx + 1}</span>
+                    <div className="sm:col-span-2 text-[#A3A3A3] pl-0.5 sm:pl-1 flex items-center gap-1.5 min-w-0">
+                      <span className="whitespace-nowrap">#{set.set_number || sIdx + 1}</span>
                     </div>
 
-                    <div className="col-span-4 text-center text-white text-sm font-black">
+                    <div className="sm:col-span-4 text-center text-white text-xs sm:text-sm font-black whitespace-nowrap">
                       {set.weight_kg} kg
                     </div>
 
-                    <div className="col-span-3 text-center text-white text-sm font-black">
+                    <div className="sm:col-span-3 text-center text-white text-xs sm:text-sm font-black whitespace-nowrap">
                       {set.reps} reps
                     </div>
 
-                    <div className="col-span-3 flex justify-center items-center gap-1">
+                    <div className="sm:col-span-3 flex justify-center items-center gap-1">
                       {set.is_pr ? (
                         <span className="flex items-center gap-1 text-[10px] text-[#EF4444] font-black uppercase tracking-wider">
                           <Trophy size={12} /> PR

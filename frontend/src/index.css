@@ -24,15 +24,45 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+  background: #000000;
+}
+
 body {
   background-color: #000000;
   color: #FFFFFF;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   overscroll-behavior-y: none;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: clip;
+}
+
+.app-main,
+.app-main > *,
+.app-main [class*='grid'],
+.app-main [class*='flex'] {
+  min-width: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 /* iOS Safe Area Inset Helpers */
@@ -112,4 +142,50 @@ body {
 }
 .animate-pulse-red {
   animation: pulse-red 2s infinite;
+}
+
+@media (max-width: 640px) {
+  .app-main {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .text-xs {
+    font-size: 0.8125rem;
+    line-height: 1.2rem;
+  }
+
+  [class~='text-[10px]'] {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  [class~='text-[11px]'] {
+    font-size: 0.8125rem;
+    line-height: 1.1rem;
+  }
+
+  .app-main h1.text-3xl {
+    font-size: clamp(1.4rem, 7vw, 1.875rem);
+    line-height: 1.1;
+    flex-wrap: wrap;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .app-main {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (pointer: coarse) and (max-width: 767px) {
+  button {
+    min-height: 44px;
+  }
 }

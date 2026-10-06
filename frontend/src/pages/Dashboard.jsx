@@ -108,11 +108,11 @@ export default function Dashboard() {
   return (
     <div className="space-y-6 select-none">
       {/* Top Athlete Hero Banner */}
-      <div className="bg-[#121212] rounded-3xl p-6 sm:p-8 border border-[#262626] relative overflow-hidden group shadow-2xl">
-        <div className="absolute right-6 top-6 text-[#EF4444] flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded-full bg-[#EF4444]/15 border border-[#EF4444]/30">
+      <div className="bg-[#121212] rounded-3xl p-5 sm:p-8 border border-[#262626] relative overflow-hidden group shadow-2xl">
+        <div className="w-fit self-start sm:absolute sm:right-6 sm:top-6 mb-3 sm:mb-0 text-[#EF4444] flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded-full bg-[#EF4444]/15 border border-[#EF4444]/30">
           <Sparkles size={14} className="text-[#EF4444]" /> AI OPTIMIZED
         </div>
-        <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight uppercase mb-2">
+        <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight uppercase mb-2 break-words">
           {getGreeting()}, {name}!
         </h1>
         <p className="text-sm text-[#A3A3A3] max-w-xl leading-relaxed">
@@ -122,7 +122,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stats Cards Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         <StatCard
           icon={Activity}
           label="Workouts This Month"
@@ -157,7 +157,7 @@ export default function Dashboard() {
             return (
               <div
                 key={idx}
-                className="min-w-[310px] bg-[#121212] border-l-4 border-[#EF4444] border-t border-r border-b border-[#262626] p-4 rounded-2xl shadow-md flex items-start gap-3.5"
+                className="min-w-[min(88vw,310px)] bg-[#121212] border-l-4 border-[#EF4444] border-t border-r border-b border-[#262626] p-4 rounded-2xl shadow-md flex items-start gap-3.5"
               >
                 <Bot size={22} className="text-[#EF4444] shrink-0 mt-0.5" />
                 <div>
